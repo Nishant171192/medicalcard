@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:TestXamarin" 
+             xmlns:header="clr-namespace:TestXamarin.Custom"
+             BackgroundColor="#F0F0F0"
+             x:Class="TestXamarin.pages.NotificationPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Green">
+            <header:HeaderView Title="Medical">
+            </header:HeaderView>
+            <Label Text=" THIS IS A TEST !!!!" HorizontalOptions="Center" VerticalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

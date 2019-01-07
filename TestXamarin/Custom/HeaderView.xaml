@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="TestXamarin.Custom.HeaderView" HorizontalOptions="FillAndExpand"
+      BackgroundColor="#0264B3"
+VerticalOptions="StartAndExpand" HeightRequest="50">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="50" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="2*" x:Name="HeaderLeftView">
+        </ColumnDefinition>
+        <ColumnDefinition Width="6*" x:Name="HeaderTitleView">
+        </ColumnDefinition>
+        <ColumnDefinition Width="2*" x:Name="HeaderRightView">
+        </ColumnDefinition>
+    </Grid.ColumnDefinitions>
+    <!-- Header LeftView-->
+    <Frame Grid.Column="0" BackgroundColor="Transparent" CornerRadius="0" x:Name="BackLayout" BorderColor="Transparent" HasShadow="false" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Image Source="back.png" Margin="10,0,0,0" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="20" />
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnLeftTapped" NumberOfTapsRequired="1" />
+        </Frame.GestureRecognizers>
+    </Frame>
+    <Frame Grid.Column="0" x:Name="MenuLayout" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="0" HasShadow="false" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Image Source="menu.png" Margin="15,0,0,0" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Start" WidthRequest="20" />
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnLeftTapped" NumberOfTapsRequired="1" />
+        </Frame.GestureRecognizers>
+    </Frame>
+    <!-- Header Title-->
+    <Label x:Name="TitleLabel" Grid.Column="1" LineBreakMode="TailTruncation" Text="{Binding Title}" TextColor="White" FontSize="18"  HorizontalOptions="Center" VerticalOptions="Center">
+    </Label>
+    <!-- Header RightView-->
+   
+    <Frame Grid.Column="2" x:Name="ExpandLayout" IsVisible="true" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="0" HasShadow="false" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout VerticalOptions="Center">
+            <Image x:Name="ExpandIcon" Source="bell16.png" Margin="0,0,15,0" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="15" HeightRequest="15" />
+        </StackLayout>
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnExpandTapped" NumberOfTapsRequired="1" />
+        </Frame.GestureRecognizers>
+    </Frame>
+    
+    <Frame Grid.Column="2" x:Name="SearchLayout" IsVisible="true" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="0" HasShadow="false" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout VerticalOptions="Center">
+            <Image x:Name="SearchIcon" Source="more.png" Margin="0,0,15,0" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="15" HeightRequest="15" />
+        </StackLayout>
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnSearchTapped" NumberOfTapsRequired="1" />
+        </Frame.GestureRecognizers>
+    </Frame>
+    
+    <StackLayout x:Name="RightView" Spacing="0" IsVisible="false" Grid.Column="2" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <RelativeLayout WidthRequest="20" HeightRequest="30" Margin="0,5,5,0">
+            <Image Source="notification.png" Margin="0,0,10,0" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="EndAndExpand" WidthRequest="20" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.2}" />
+            <Frame x:Name="CountView" IsVisible="false" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.6}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0, Constant=18}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0, Constant=18}" HeightRequest="18" WidthRequest="18" BackgroundColor="White" Padding="0"
+                CornerRadius="9" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand" HasShadow="false">
+                <Label x:Name="notificationCount"  Margin="1,1,0,0" FontSize="12" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" LineBreakMode="TailTruncation">
+                </Label>
+            </Frame>
+        </RelativeLayout>
+        <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnRightTapped" NumberOfTapsRequired="1" />
+        </StackLayout.GestureRecognizers>
+    </StackLayout>
+</Grid>

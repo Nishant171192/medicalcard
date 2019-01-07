@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:TestXamarin" 
+             xmlns:header="clr-namespace:TestXamarin.Custom" xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" ios:Page.UseSafeArea="true" x:Class="TestXamarin.pages.HomePage" BackgroundColor="#F0F0F0">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="plainButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#eee" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0" />
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+            <Style x:Key="darkerButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#ddd" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0" />
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+            <Style x:Key="orangeButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#E8AD00" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderRadius" Value="0" />
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+                <!--<RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />-->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <!--<ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />-->
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Row="0" Grid.Column="0" Margin="0">
+                <header:HeaderView Title="Medical">
+                </header:HeaderView>
+            </StackLayout>
+            <StackLayout Grid.Row="1" Grid.Column="0" Margin="0">
+                <Image Source="healthCard.png" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+                <Frame HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" Padding="0" Margin="11,0,11,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <!--<ColumnDefinition Width="*" />-->
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="My Dependents" Margin="10" HorizontalOptions="StartAndExpand" VerticalOptions="Center"  TextColor="Black" Grid.Row="0" Grid.Column="0"  />
+                        <StackLayout Grid.Row="0" Grid.Column="1"  Spacing="0" VerticalOptions="Center" HorizontalOptions="Fill">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                
+                            <Label Text="+" TextColor="#076AB6"  Scale="1.5"  VerticalOptions="Center" Margin="0" Grid.Row="0" Grid.Column="0"/>
+                            <Label Text="Add new" Margin="0,5,0,0" VerticalOptions="Center" HorizontalOptions="End" TextColor="#076AB6"  Grid.Row="0" Grid.Column="1" />
+                                </Grid>
+                        </StackLayout>
+                        <ListView x:Name="Child" ItemsSource="{Binding EmployeeList}" Grid.Row="1" Grid.ColumnSpan="2" HasUnevenRows="true" 
+                                  SeparatorVisibility="None" VerticalOptions="Start" CachingStrategy="RecycleElement" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Padding="10" HorizontalOptions="CenterAndExpand" VerticalOptions="Fill">
+                                        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#FAFAFA" >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2.2*" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="2.2*" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="3.3*" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="2.3*" />
+                                            </Grid.ColumnDefinitions>
+                                            
+                                                
+                                            <Label Text="{Binding EmployeeName}" TextColor="Black" Grid.Row="0"  Grid.ColumnSpan="7" HorizontalOptions="Start" Margin="10" />
+                                            
+                                            <Label Text="{Binding DependencyType}" Grid.Row="1" Grid.Column="0" FontSize="15" TextColor="#C0C0C0" HorizontalOptions="StartAndExpand" VerticalOptions="Start" Margin="10" />
+                                            <BoxView VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="1" HorizontalOptions="Fill" WidthRequest="2" HeightRequest="15" Color="#E0E1E1" />
+                                          
+                                            <Label Text="{Binding Gender}" Grid.Row="1" Grid.Column="2" FontSize="15" TextColor="#C0C0C0" HorizontalOptions="StartAndExpand" VerticalOptions="Start" Margin="10" />
+                                            <BoxView VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="3" HorizontalOptions="Fill" WidthRequest="2" HeightRequest="15" Color="#E0E1E1" />
+                                          
+                                            <Label Text="{Binding DOB}" Grid.Row="1" Grid.Column="4" FontSize="15" TextColor="#C0C0C0" HorizontalOptions="StartAndExpand" VerticalOptions="Start" Margin="10" />
+                                            <BoxView VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="5" HorizontalOptions="Fill" WidthRequest="2" HeightRequest="15" Color="#E0E1E1" />
+                                           
+                                            <Label Text="{Binding MaritalStatus}" Grid.Row="1" Grid.Column="6" FontSize="15" TextColor="#C0C0C0" HorizontalOptions="StartAndExpand" VerticalOptions="Start" Margin="10" />
+                                               
+                                        </Grid>
+                                             </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

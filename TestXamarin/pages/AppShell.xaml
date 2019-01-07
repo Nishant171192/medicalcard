@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+       xmlns:local="clr-namespace:TestXamarin.pages" 
+       xmlns:localOuter="clr-namespace:TestXamarin" 
+       FlyoutBehavior="Disabled"
+       
+       RouteScheme="app" RouteHost="microsoft.com" Route="newapp" 
+       x:Class="TestXamarin.pages.AppShell">
+    <ShellItem>
+     
+      <ShellSection Title="Home" Icon="home16.png">
+            <ShellContent>
+                <local:HomePage />
+            </ShellContent>
+        </ShellSection>
+        <ShellSection Title="Itime" Icon="bell16.png">
+            <ShellContent>
+                <local:NotificationPage />
+            </ShellContent>
+        </ShellSection>
+        <ShellSection Title="Health" Icon="heart.png">
+            <ShellContent>
+                <local:MedicalPage />
+            </ShellContent>
+        </ShellSection>
+        <ShellSection Title="More" Icon="more.png">
+            <ShellContent>
+                <local:NotificationPage />
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+</Shell>
